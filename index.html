@@ -49,10 +49,20 @@
         function saveContent() {
             const content = editor.getValue();
             // Hier kannst du den Code hinzufügen, um den Inhalt zu speichern
+            // Beispiel: Speichern in Local Storage
+            localStorage.setItem('editorContent', content);
             console.log('Content saved:', content);
         }
 
         document.getElementById('saveButton').addEventListener('click', saveContent);
+
+        // Optional: Laden des gespeicherten Inhalts beim Laden der Seite
+        window.addEventListener('load', function() {
+            const savedContent = localStorage.getItem('editorContent');
+            if (savedContent) {
+                editor.setValue(savedContent);
+            }
+        });
     </script>
 </body>
 </html>
